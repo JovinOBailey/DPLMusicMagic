@@ -9,7 +9,7 @@ public class Server {
 	
    public Server() throws IOException, InterruptedException{
 	   receiveFile();
-	   
+	   sendFile();
    }
    
 public void receiveFile () throws IOException, InterruptedException {   

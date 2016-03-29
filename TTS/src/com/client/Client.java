@@ -13,10 +13,12 @@ public class Client {
 	private File file;
 	private JTextArea textArea;
 	private Socket socket;
+	public Main main;
     
 	public Client() throws UnknownHostException, IOException, InterruptedException{
 		initialize();
 		//receiveFile();
+	//	main = new Main();
 	}
 	
     private void initialize() throws UnknownHostException, IOException {
@@ -104,15 +106,15 @@ public class Client {
 		//sp = new JScrollPane(textArea);
 		//sp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		JButton btnPlay = new JButton("PLAY");
+		JButton btnPlay = new JButton("Play English");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Main main = new Main();
+				//Main main = new Main();
 				main.beat_spoken();
 			}
 		});
 		
-		btnPlay.setBounds(615, 660, 89, 103);
+		btnPlay.setBounds(604, 567, 100, 35);
 		frame.getContentPane().add(btnPlay);
 		
 		JButton btnAttach = new JButton("Open File");
@@ -142,6 +144,35 @@ public class Client {
 		
 			btnAttach.setBounds(604, 12, 89, 23);
 			frame.getContentPane().add(btnAttach);
+			
+			JButton btnNewButton = new JButton("Play Spanish");
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+				
+					main.beat_spoken_spanish();
+					
+				}
+			});
+			btnNewButton.setBounds(604, 613, 100, 35);
+			frame.getContentPane().add(btnNewButton);
+			
+			JButton btnEnglishMidi = new JButton("Eng w/B");
+			btnEnglishMidi.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					main.beat_speak();
+				}
+			});
+			btnEnglishMidi.setBounds(604, 659, 100, 35);
+			frame.getContentPane().add(btnEnglishMidi);
+			
+			JButton btnCompile = new JButton("Compile");
+			btnCompile.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					main= new Main();
+				}
+			});
+			btnCompile.setBounds(604,  248,  89,  23);
+			frame.getContentPane().add(btnCompile);
 		
 	}
     
@@ -213,5 +244,4 @@ public class Client {
 			}
 		});
     }
-    
 }
